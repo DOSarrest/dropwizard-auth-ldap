@@ -55,6 +55,10 @@ public class LdapConfiguration {
     @NotNull
     @Valid
     private Set<String> restrictToGroups = Sets.newHashSet();
+    
+    @NotNull
+    @Valid
+    private Boolean tls = false;
 
     public URI getUri() {
         return uri;
@@ -154,4 +158,13 @@ public class LdapConfiguration {
         restrictToGroups.add(group);
         return this;
     }
+
+	public Boolean getTLS() {
+		return tls;
+	}
+
+	public void setTLS(Boolean tls) {
+		this.tls = tls;
+	}
+    
 }
