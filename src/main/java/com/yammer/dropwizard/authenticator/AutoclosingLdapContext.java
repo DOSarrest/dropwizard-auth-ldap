@@ -19,6 +19,9 @@ public class AutoclosingLdapContext extends InitialLdapContext implements AutoCl
         super(environment, null);
         if (tls==true) {
         	loadTLS();
+		this.addToEnvironment(Context.SECURITY_AUTHENTICATION, "simple");
+		this.addToEnvironment(Context.SECURITY_PRINCIPAL, this.getEnvironment().get(Context.SECURITY_PRINCIPAL));
+		this.addToEnvironment(Context.SECURITY_CREDENTIALS, this.getEnvironment().get(Context.SECURITY_CREDENTIALS));
         }
     }
     
